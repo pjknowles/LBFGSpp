@@ -32,9 +32,11 @@ int main()
     const int n = 10;
     LBFGSParam<float> param;
     LBFGSSolver<float> solver(param);
+    param.max_iterations=1000;
     Rosenbrock fun(n);
 
     VectorXf x = VectorXf::Zero(n);
+    for (int i=0; i<n; i++) x[i]=2.9;
     float fx;
     int niter = solver.minimize(fun, x, fx);
 

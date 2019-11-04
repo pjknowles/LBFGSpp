@@ -49,7 +49,7 @@ int main()
 
     const int tests_per_n = 1024;
 
-    for( int n=2; n <= 24; n += 2 )
+    for( int n=2; n <= 2; n += 2 )
     {
         std::cout << "n = " << n << std::endl;
         Rosenbrock fun_backtrack(n),
@@ -61,6 +61,7 @@ int main()
         for( int test=0; test < tests_per_n; test++ )
         {
             VectorXd x, x0 = VectorXd::Random(n);
+            for (int i=0; i<n; i++) x0[i]=2.99;
 
             double fx;
 
