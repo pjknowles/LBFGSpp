@@ -112,8 +112,16 @@ public:
             m_gradp.noalias() = m_grad;
 
             // Line search to update x, fx and gradient
-            LineSearch<Scalar>::LineSearch(f, fx, x, m_grad, step, m_drt, m_xp, m_param);
+          std::cout << "before LineSearch"<<std::endl;
+          std::cout << "x: "<<x<<std::endl;
+          std::cout << "m_grad: "<<m_grad<<std::endl;
+          std::cout << "fx: "<<fx<<std::endl;
+          LineSearch<Scalar>::LineSearch(f, fx, x, m_grad, step, m_drt, m_xp, m_param);
 
+            std::cout << "after LineSearch"<<std::endl;
+          std::cout << "x: "<<x<<std::endl;
+          std::cout << "m_grad: "<<m_grad<<std::endl;
+          std::cout << "fx: "<<fx<<std::endl;
             // New x norm and gradient norm
             xnorm = x.norm();
             gnorm = m_grad.norm();

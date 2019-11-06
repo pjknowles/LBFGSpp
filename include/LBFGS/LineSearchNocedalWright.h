@@ -46,6 +46,7 @@ public:
                            const Vector& drt, const Vector& xp,
                            const LBFGSParam<Scalar>& param)
     {
+      std::cout <<"Nocedal-Wright line search"<<std::endl;
         // Check the value of step
         if(step <= Scalar(0))
             throw std::invalid_argument("'step' must be positive");
@@ -92,6 +93,13 @@ public:
         {
           x.noalias() = xp + step * drt;
           fx = f(x, grad);
+          std::cout << "in LineSearch iteration"<<std::endl;
+          std::cout << "step: "<<step<<std::endl;
+          std::cout << "drt: "<<drt.transpose()<<std::endl;
+          std::cout << "xp: "<<xp.transpose()<<std::endl;
+          std::cout << "x: "<<x.transpose()<<std::endl;
+          std::cout << "grad: "<<grad.transpose()<<std::endl;
+          std::cout << "fx: "<<fx<<std::endl;
 
           if(iter++ >= param.max_linesearch)
             return;
